@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+    <TextView
+        android:id="@+id/settingsServerIpPrompt"
+        android:layout_width="370dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/settingsLocateServerInfo4"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/settingsServerIpOverride"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/settingsInfo0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:text="@string/settingsLocateServerInfo0"
+        android:textColor="@color/colorError"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/settingsInfo1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:text="@string/settingsLocateServerInfo1"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/settingsInfo0" />
+
+    <TextView
+        android:id="@+id/settingsInfo2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="15dp"
+        android:text="@string/settingsLocateServerInfo2"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/settingsInfo1" />
+
+    <TextView
+        android:id="@+id/settingsStoragePrompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="15dp"
+        android:text="@string/settingsLocateServerInfo3"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/settingsInfo2" />
+
+    <RadioGroup
+        android:id="@+id/settingsStorageOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="15dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/settingsStoragePrompt">
+
+        <RadioButton
+            android:id="@+id/settingsStorageInternal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/settingsStorageInternal"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/settingsStorageSdCard1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/settingsStorageExternal"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/settingsStorageInternal" />
+
+        <RadioButton
+            android:id="@+id/settingsStorageSdCard2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@+id/settingsStorageSdCard1" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/settingsGrantAccessButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:onClick="onSyncGrantAccessButton_Click"
+        android:text="@string/settingsGrantAccess"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="@+id/settingsStorageOptions"
+        app:layout_constraintTop_toBottomOf="@+id/settingsStorageOptions" />
+
+    <CheckBox
+        android:id="@+id/settingsDebugMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/settingsDebugMode"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/settingsGrantAccessButton" />
+
+    <TextView
+        android:id="@+id/settingsLocateServerNoConfig"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="15dp"
+        android:text="@string/errorLocateServerNoConfig"
+        android:textColor="@color/colorError"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/settingsDebugMode" />
+
+    <TextView
+        android:id="@+id/settingsDeviceNamePrompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="18dp"
+        android:labelFor="@+id/settingsDeviceName"
+        android:singleLine="true"
+        android:text="@string/settingsDeviceNamePrompt"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/settingsLocateServerNoConfig" />
+
+    <EditText
+        android:id="@+id/settingsDeviceName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="20dp"
+        android:inputType="text"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/settingsDeviceNamePrompt" />
+
+    <ProgressBar
+        android:id="@+id/settingsWaitIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:minWidth="60dp"
+        android:minHeight="60dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/locateServerButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settingsDebugMode"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/locateServerButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="@color/colorButtonBackground"
+        android:onClick="onLocateServerButton_Click"
+        android:text="@string/settingsLocate"
+        android:textColor="@color/colorButtonTextEnabled"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <EditText
+        android:id="@+id/settingsServerIpOverride"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="11dp"
+        android:digits="0123456789."
+        android:ems="10"
+        android:inputType="number|numberDecimal"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/locateServerButton"
+        app:layout_constraintStart_toEndOf="@+id/settingsServerIpLabel" />
+
+    <TextView
+        android:id="@+id/settingsServerIpLabel"
+        android:layout_width="99dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="15dp"
+        android:text="Server IP:"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/settingsServerIpOverride"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
