@@ -2,14 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.getmusicbee.musicbeewifisync"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 74
-        versionName '2.1'
+        versionCode 75
+        versionName '2.2'
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
@@ -20,6 +19,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    namespace 'com.getmusicbee.musicbeewifisync'
 
 }
 
