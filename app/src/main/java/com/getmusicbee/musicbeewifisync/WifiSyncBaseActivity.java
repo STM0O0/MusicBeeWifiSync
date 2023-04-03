@@ -112,7 +112,7 @@ abstract class WifiSyncBaseActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent resultData) {
         if (resultCode == RESULT_OK) {
             WifiSyncServiceSettings.accessPermissionsUri.set(resultData.getData());
-            if ((Build.VERSION.SDK_INT < Build.VERSION_CODES.N || Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) && !PermissionsHandler.isUserSelectedPermissionsPathValid(WifiSyncServiceSettings.accessPermissionsUri.get())) {
+            if ((Build.VERSION.SDK_INT < Build.VERSION_CODES.N || Build.VERSION.SDK_INT >= 34) && !PermissionsHandler.isUserSelectedPermissionsPathValid(WifiSyncServiceSettings.accessPermissionsUri.get())) {
                 AlertDialog.Builder errorDialog = new AlertDialog.Builder(this);
                 String segment = WifiSyncServiceSettings.accessPermissionsUri.get().getLastPathSegment();
                 errorDialog.setMessage(String.format(getString(R.string.errorInvalidPermmissionsFolder), segment.substring(segment.indexOf(':') + 1)));
